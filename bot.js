@@ -1,10 +1,14 @@
-const http = require("http");
-http.createServer((req, res) => {
-  res.writeHead(200);
-  res.end("Bot ishlayapti!");
-}).listen(process.env.PORT || 3000);
 require("dotenv").config();
 const TelegramBot = require("node-telegram-bot-api");
+const http = require("http");
+
+// Render Web Service uchun HTTP server (tekin planda sleep bo'lmasligi uchun)
+http.createServer((req, res) => {
+  res.writeHead(200);
+  res.end("🤖 Bot ishlayapti!");
+}).listen(process.env.PORT || 3000, () => {
+  console.log(`🌐 HTTP server ishga tushdi`);
+});
 
 const TOKEN = process.env.BOT_TOKEN;
 if (!TOKEN) {
