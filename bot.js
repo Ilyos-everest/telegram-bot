@@ -1,3 +1,8 @@
+const http = require("http");
+http.createServer((req, res) => {
+  res.writeHead(200);
+  res.end("Bot ishlayapti!");
+}).listen(process.env.PORT || 3000);
 require("dotenv").config();
 const TelegramBot = require("node-telegram-bot-api");
 
